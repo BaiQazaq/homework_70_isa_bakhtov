@@ -9,11 +9,12 @@
     {% for task in tasks %}
     <div class="wrapper">
         <h4>Title - {{ task.summary }}</h2>
+        <p>Task id - {{ task.id }}</p>
         <p>Status - {{ task.status }}</p>
-        <p>Status - {{ task.type }}</p>
-        <p><a href="{% url 'show' task.pk %}">View detail</a></p>
-        <p><a href="{% url 'update' task.pk %}">Update task</a></p>
-        <p><a href="{% url 'delete' task.pk %}">Delete task</a></p>
+        {% comment %} <p>Status - {{ task.type }}</p> {% endcomment %}
+        <p><a href="{% url 'task_render' task.pk %}">View detail</a></p>
+        {% comment %}<p><a href="{% url 'update' task.pk %}">Update task</a></p>
+        <p><a href="{% url 'delete' task.pk %}">Delete task</a></p> {% endcomment %}
     </div>
     {% endfor %}
 {% endblock%}
