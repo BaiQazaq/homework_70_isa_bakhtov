@@ -7,7 +7,7 @@ from tracker_app.models import Status
 # Register your models here.
 
 class TaskAdmin(admin.ModelAdmin):
-    list_display = ("id","summary", "description", "status", "type", "created_at")
+    list_display = ("id","summary", "description", "status", "created_at")
     list_filter = ("id", "summary", "description", "status", "type", "created_at")
     search_fields = ("summary", "description", "status", "type")
     fields = ("summary", "description", "status", "type", "created_at", "changed_at")
