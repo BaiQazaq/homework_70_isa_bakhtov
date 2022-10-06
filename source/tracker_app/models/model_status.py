@@ -4,7 +4,9 @@ from django.db import models
 class Status(models.Model):
     name = models.CharField(
         verbose_name='Название',
-        null=False, blank=False
+        max_length=20,
+        null=False,
+        blank=False
     )
     created_at = models.DateTimeField(
         auto_now_add=True,
