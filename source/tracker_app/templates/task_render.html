@@ -19,6 +19,7 @@
 <div>
   <a href="{% url 'index' %}">Main page</a>
   <p></p>
+  <p><a href="{% url 'task_edit' task.pk %}">Edit task</a></p>
   {% comment %} <a href="{% url 'creation' %}">Add tasks</a> {% endcomment %}
 </div>
 {% endblock %}

@@ -4,7 +4,7 @@ from django.core.exceptions import ValidationError
 from tracker_app.models import Task
 
 
-class ArticleForm(forms.ModelForm):
+class TaskForm(forms.ModelForm):
     
     
     class Meta:

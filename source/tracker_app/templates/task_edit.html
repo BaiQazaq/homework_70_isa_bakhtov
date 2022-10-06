@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Edit task {{ task.pk }}
+{% endblock %}
+{% block header %}
+<h1>To edit the task {{ task.pk }}</h1>
+{% endblock %}
+{% block content %}
+    <form action="{% url 'task_edit' task.pk %}" method="POST">
+        {% csrf_token %}
+        <div class="form">
+            {% include 'partial/task_form.html' with button_text='Edit'%}
+        </div>
+    </form>
+{% endblock %}
+{% block link %}
+    <a href="{% url 'index' %}">Main page</a>
+    {% comment %} <a href="{% url 'creation' %}">Add task</a> {% endcomment %}
+{% endblock %}
