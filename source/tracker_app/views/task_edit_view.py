@@ -3,6 +3,7 @@ from django.views.generic import TemplateView
 from tracker_app.forms import TaskForm
 from tracker_app.models import Task
 
+
 class TaskEditView(TemplateView):
     template_name = 'task_edit.html'
     
@@ -21,10 +22,7 @@ class TaskEditView(TemplateView):
         task = get_object_or_404(Task, pk=kwargs['pk'])
         form = TaskForm(request.POST, instance=task)
         if form.is_valid():
-            # tags = form.cleaned_data.pop('tags')
             task = form.save()
-            # article.tags.set(tags)
-            # article.save()
             return redirect('task_render', pk=task.pk)
         return render(request, 'task_edit.html', context={'form': form})
         

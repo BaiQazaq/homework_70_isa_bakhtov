@@ -7,7 +7,7 @@ from django.db import models
 
 class Task(models.Model):
     summary = models.CharField(verbose_name='Заголовок', max_length=100, null=False, blank=False)
-    description = models.TextField(verbose_name='Описание',max_length=500, null=True)
+    description = models.CharField(verbose_name='Описание',max_length=500, null=True)
     status = models.ForeignKey('tracker_app.Status', verbose_name='Статус', related_name='tasks', on_delete=models.PROTECT)
     type = models.ManyToManyField(to='tracker_app.Type', verbose_name='Тип', related_name='tasks')
     created_at = models.DateTimeField(verbose_name='Дата создания', auto_now_add=True)
