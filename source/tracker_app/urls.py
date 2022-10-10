@@ -5,6 +5,7 @@ from tracker_app.views.task_view import TaskView
 from tracker_app.views.task_edit_view import TaskEditView
 from tracker_app.views.task_create_view import TaskCreateView
 from tracker_app.views.task_delete import delete_view, confirm_delete
+from tracker_app.models import Status, Type
 
 
 urlpatterns = [

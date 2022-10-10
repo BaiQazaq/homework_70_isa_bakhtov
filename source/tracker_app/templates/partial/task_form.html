@@ -1,22 +1,7 @@
-<div class="form_row">
-    {% if errors.title %}
-        <p class="error">{{ errors.title }}</p>
-    {% endif %}
-    <label for="summary">Summary: </label>
-    <input class="input_text" id="summary" name="summary" type="text" value="{{ task.summary }}">
-</div>
-<div class="form_row">
-    <label for="description">Description: </label>
-    <input class="input_text" id="description" name="description" type="text" value="{{ task.description }}">
-</div>
-<div class="form_row">
-    <label for="status">Status:</label>
-    <input class="input_text" id="status" name="status" type="text" value="{{ task.status }}">
-</div>
-<div class="form_row">
-    <label for="type">Type: </label>
-    <input class="input_text" id="type" name="type" type="text" value="{{ task.type }}">
-</div>
-<div class="from_row">
-    <input type="submit" value="{{ button_text }}">
-</div>
+{% csrf_token %}
+
+{{ form.as_p }}
+
+<input type="submit" value="{{ button_text }}">
+
+

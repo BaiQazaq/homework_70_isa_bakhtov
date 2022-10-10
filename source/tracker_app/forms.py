@@ -7,12 +7,12 @@ from tracker_app.models import Status
 
 
 class TaskForm(forms.ModelForm):
-    types = forms.ModelChoiceField(required=False, label='Типы', queryset=Type.objects.all())
-    statuses = forms.ModelChoiceField(required=False, label='Статусы', queryset=Status.objects.all())
+    # types = forms.ModelChoiceField(required=False, label='Типы', queryset=Type.objects.all())
+    # statuses = forms.ModelChoiceField(required=False, label='Статусы', queryset=Status.objects.all())
     
     class Meta:
         model = Task
-        fields = ('summary', 'description', 'status', 'type', 'statuses')
+        fields = ('summary', 'description', 'status', 'type')
     
     def clean_summary(self):
         summary = self.cleaned_data.get('summary')
@@ -20,21 +20,5 @@ class TaskForm(forms.ModelForm):
             raise ValidationError('Заголовок должен быть длинее 2x символов')
         return summary
     
-    def __str__(self):
-        return self.statuses
+   
     
-# class TypeForm(forms.ModelForm):
-#     types = forms.ModelChoiceField(required=False, label='Типы', queryset=Type.objects.all())
-    
-    
-#     class Meta:
-#         model = Type
-#         fields = ('types')
-    
-    
-# class StatusForm(forms.ModelForm):
-    
-    
-#     class Meta:
-#         model = Status
-        
