@@ -18,5 +18,6 @@ class TaskForm(forms.ModelForm):
             raise ValidationError('Заголовок должен быть длинее 2x символов')
         return summary
     
+    
    
     
