@@ -7,9 +7,7 @@ from tracker_app.models import Status
 
 
 class TaskForm(forms.ModelForm):
-    # types = forms.ModelChoiceField(required=False, label='Типы', queryset=Type.objects.all())
-    # statuses = forms.ModelChoiceField(required=False, label='Статусы', queryset=Status.objects.all())
-    
+        
     class Meta:
         model = Task
         fields = ('summary', 'description', 'status', 'type')

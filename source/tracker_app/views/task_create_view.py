@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from tracker_app.models import Task, Status, Type
 from django.views.generic import TemplateView
 from tracker_app.forms import TaskForm
-from django import forms
+
 
 
 class TaskCreateView(TemplateView):
@@ -16,7 +16,6 @@ class TaskCreateView(TemplateView):
         return self.render_to_response(context={'form': form})
     
     def post(self, request, *args, **kwargs):
-        print('*'*20,request.POST)
         form = TaskForm(data=request.POST)
         if form.is_valid():
             type = form.cleaned_data.pop('type')

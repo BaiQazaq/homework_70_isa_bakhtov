@@ -16,7 +16,7 @@ class Task(models.Model):
     is_deleted = models.BooleanField(verbose_name="Удалено", default=False, null=False)
     
     def __str__(self):
-        return f"{self.status} - {self.description}"
+        return f"{self.status} - {self.description} - {self.type}"
     
     def delete(self, using=None, keep_parents=False):
         self.deleted_at = timezone.now()
