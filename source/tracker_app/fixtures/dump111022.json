@@ -1,0 +1,137 @@
+[
+{
+  "model": "tracker_app.task",
+  "pk": 1,
+  "fields": {
+    "summary": "Bug in app",
+    "description": "By client was checked bug in the app for section create",
+    "status": 1,
+    "created_at": "2022-10-06T20:15:27.802Z",
+    "changed_at": "2022-10-07T13:00:02.772Z",
+    "deleted_at": "2022-10-07T13:00:02.772Z",
+    "is_deleted": true,
+    "type": []
+  }
+},
+{
+  "model": "tracker_app.task",
+  "pk": 2,
+  "fields": {
+    "summary": "sdfsd111",
+    "description": "Wash the car",
+    "status": 2,
+    "created_at": "2022-10-10T10:47:22.978Z",
+    "changed_at": "2022-10-11T09:59:44.914Z",
+    "deleted_at": null,
+    "is_deleted": false,
+    "type": [
+      1
+    ]
+  }
+},
+{
+  "model": "tracker_app.task",
+  "pk": 3,
+  "fields": {
+    "summary": "dcsdcsd",
+    "description": "Wash",
+    "status": 2,
+    "created_at": "2022-10-10T10:47:56.436Z",
+    "changed_at": "2022-10-10T10:51:23.881Z",
+    "deleted_at": null,
+    "is_deleted": false,
+    "type": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "tracker_app.task",
+  "pk": 4,
+  "fields": {
+    "summary": "Isa",
+    "description": "Isa",
+    "status": 1,
+    "created_at": "2022-10-10T10:59:30.852Z",
+    "changed_at": "2022-10-10T10:59:30.853Z",
+    "deleted_at": null,
+    "is_deleted": false,
+    "type": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "tracker_app.task",
+  "pk": 5,
+  "fields": {
+    "summary": "pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp",
+    "description": "Cake",
+    "status": 1,
+    "created_at": "2022-10-11T11:34:35.685Z",
+    "changed_at": "2022-10-11T11:34:50.183Z",
+    "deleted_at": "2022-10-11T11:34:50.183Z",
+    "is_deleted": true,
+    "type": [
+      2
+    ]
+  }
+},
+{
+  "model": "tracker_app.type",
+  "pk": 1,
+  "fields": {
+    "name": "Task",
+    "created_at": "2022-10-06T20:06:07.471Z",
+    "update_at": "2022-10-06T20:06:07.471Z"
+  }
+},
+{
+  "model": "tracker_app.type",
+  "pk": 2,
+  "fields": {
+    "name": "Bug",
+    "created_at": "2022-10-06T20:06:26.519Z",
+    "update_at": "2022-10-06T20:06:26.519Z"
+  }
+},
+{
+  "model": "tracker_app.type",
+  "pk": 3,
+  "fields": {
+    "name": "Enhancement",
+    "created_at": "2022-10-06T20:07:12.281Z",
+    "update_at": "2022-10-06T20:07:12.281Z"
+  }
+},
+{
+  "model": "tracker_app.status",
+  "pk": 1,
+  "fields": {
+    "name": "New",
+    "created_at": "2022-10-06T20:08:13.837Z",
+    "update_at": "2022-10-06T20:08:13.837Z"
+  }
+},
+{
+  "model": "tracker_app.status",
+  "pk": 2,
+  "fields": {
+    "name": "In Progress",
+    "created_at": "2022-10-06T20:08:34.125Z",
+    "update_at": "2022-10-06T20:08:34.125Z"
+  }
+},
+{
+  "model": "tracker_app.status",
+  "pk": 3,
+  "fields": {
+    "name": "Done",
+    "created_at": "2022-10-06T20:08:48.793Z",
+    "update_at": "2022-10-06T20:08:48.793Z"
+  }
+}
+]
