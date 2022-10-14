@@ -26,5 +26,6 @@ class TaskForm(forms.ModelForm):
         return summary
     
     
-   
+class SearchForm(forms.Form):
+    search = forms.CharField(max_length=100, required=False, label='Find')
     

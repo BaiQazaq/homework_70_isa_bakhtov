@@ -1,8 +1,8 @@
 <div class="pagination">
     <span class="step-links">
-        <a href="?page=1">&laquo; At first</a>
+        <a href="?{% if query %}{{ query }}{% endif %}&page=1">&laquo; To start</a>
         {% if page_obj.has_previous %}
-            <a href="?page={{ page_obj.previous_page_number }}">Back</a>
+            <a href="?{% if query %}{{ query }}{% endif %}&page={{ page_obj.previous_page_number }}">Back</a>
         {% else %}
             <span class="page-disabled">Back</span>
         {% endif %}
@@ -17,10 +17,10 @@
 
 
         {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">Next</a>
+            <a href="?{% if query %}{{ query }}{% endif %}&page={{ page_obj.next_page_number }}">Next</a>
         {% else %}
             <span class="page-disabled">Next</span>
         {% endif %}
-        <a href="?{% if query %}{{ query }}{% endif %}&page={{ page_obj.paginator.num_pages }}">At last &raquo;</a>
+        <a href="?{% if query %}{{ query }}{% endif %}&page={{ page_obj.paginator.num_pages }}"> To end &raquo;</a>
     </span>
 </div>
