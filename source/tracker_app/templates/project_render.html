@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Project {{ project.pk }}
+{% endblock%}
+
+{% block header %}
+  <h1>About the project {{ project.title }}</h1>
+{% endblock %}
+
+{% block content %}
+  <p><b>Title:</b>  {{ project.title }}</p>
+  <p><b>Description:</b>  {{ project.description }}</p>
+  <p><b>Start:</b>  {{ project.start_date }}</p>
+  <p><b>Finish :</b>  {{ project.start_date }}</p>
+{% endblock %}
+
+{% block link %}
+<div>
+  <a href="{% url 'index' %}">Main page</a>
+  <p></p>
+  <p><a href="{% url 'task_edit' task.pk %}">Edit task</a></p>
+  <a href="{% url 'task_creation' %}">Add task</a>
+  {% comment %} <a href="{% url 'creation' %}">Add tasks</a> {% endcomment %}
+</div>
+{% endblock %}
