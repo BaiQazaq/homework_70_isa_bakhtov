@@ -4,7 +4,7 @@ from tracker_app.models import Task
 
 def delete_view(request, pk):
     task = get_object_or_404(Task, pk=pk)
-    task.delete()
+    #task.delete()
     return render(request, 'task_confirm_delete.html', context={'task': task})
 
 
