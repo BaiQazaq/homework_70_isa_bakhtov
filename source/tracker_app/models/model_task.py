@@ -10,6 +10,7 @@ class Task(models.Model):
     description = models.CharField(verbose_name='Описание',max_length=500, null=True)
     status = models.ForeignKey('tracker_app.Status', verbose_name='Статус', related_name='tasks', on_delete=models.PROTECT, default='New')
     type = models.ManyToManyField(to='tracker_app.Type', verbose_name='Тип', related_name='tasks')
+    project = models.ForeignKey('tracker_app.Project', verbose_name='Проект', null=True, related_name='tasks', on_delete=models.PROTECT, default='')
     created_at = models.DateTimeField(verbose_name='Дата создания', auto_now_add=True)
     changed_at = models.DateTimeField(verbose_name='Дата изменения', auto_now=True)
     deleted_at = models.DateTimeField(verbose_name='Дата удаления', null=True, default=None)
