@@ -17,6 +17,9 @@
         <p><a href="{% url 'delete' task.pk %}">Delete task</a></p>
     </div>
     {% endfor %}
+    {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif%}
 {% endblock%}
 {% block link %}
     <a href="{% url 'task_creation' %}">Add task</a>
