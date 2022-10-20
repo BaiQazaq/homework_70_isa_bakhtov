@@ -2,8 +2,9 @@
 from tracker_app.models import Task
 from django.urls import reverse_lazy
 from django.views.generic import DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-class TaskDeleteView(DeleteView):
+class TaskDeleteView(LoginRequiredMixin,DeleteView):
     template_name = 'task_confirm_delete.html'
     model = Task
     success_url = reverse_lazy('index')

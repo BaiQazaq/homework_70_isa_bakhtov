@@ -10,7 +10,24 @@
     <div class="container">
         <div class='link'>
             {% block link %}{% endblock %}
+            {% if user.is_authenticated %}
+                <li>
+                    <a href="{% url 'task_creation' %}">Add task</a>
+                    <a href="{% url 'project_creation' %}">Add project</a>
+                </li>
+                <li class="auth">Hi {{ user.username }}
+                    <form action="{% url 'logout' %}" method="post">
+                        {% csrf_token %}
+                        <input type='submit' value='Logout'>
+                    </form>
+                </li>
+            {% else %}
+                <li class="auth"><a href="{% url 'login' %}">Log in</a></li>
+
+            {% endif %}
+
         </div>
+            {% block menu %}{%endblock%}
     </div>
     <title>{% block title%} Tasks {% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css'%}">

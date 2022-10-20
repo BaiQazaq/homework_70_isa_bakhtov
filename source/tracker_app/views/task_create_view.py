@@ -2,10 +2,11 @@ from django.shortcuts import render, redirect
 from tracker_app.models import Task, Status, Type
 from django.views.generic import TemplateView
 from tracker_app.forms import TaskForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 
-class TaskCreateView(TemplateView):
+class TaskCreateView(LoginRequiredMixin,TemplateView):
     template_name = 'task_create.html'
     extra_context = {
         'statuses': Status.objects.all(),

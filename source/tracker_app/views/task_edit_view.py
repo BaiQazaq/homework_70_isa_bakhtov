@@ -1,11 +1,13 @@
 # from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import  UpdateView#, TemplateView, FormView,
+
 from tracker_app.forms import TaskForm
 from tracker_app.models import Task
 from django.urls import reverse
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class TaskEditView(UpdateView):
+class TaskEditView(LoginRequiredMixin, UpdateView):
     template_name = 'task_edit.html'
     form_class = TaskForm
     model = Task

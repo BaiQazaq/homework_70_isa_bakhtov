@@ -14,8 +14,10 @@
         <p>Status - {{ task.status }}</p>
         {% comment %} <p>Status - {{ task.type }}</p> {% endcomment %}
         <p><a href="{% url 'task_render' task.pk %}">View detail</a></p>
-        <p><a href="{% url 'task_edit' task.pk %}">Edit task</a></p>
-        <p><a href="{% url 'delete' task.pk %}">Delete task</a></p>
+        {% if user.is_authenticated %}
+            <p><a href="{% url 'task_edit' task.pk %}">Edit task</a></p>
+            <p><a href="{% url 'delete' task.pk %}">Delete task</a></p>
+        {% endif %}
     </div>
     {% endfor %}
     {% if is_paginated %}
@@ -23,8 +25,5 @@
     {% endif%}
 {% endblock%}
 {% block link %}
-    <a href="{% url 'task_creation' %}">Add task</a>
     <p><a href="{% url 'projects_list'%}">Projects list</a></p>
-    <a href="{% url 'project_creation' %}">Add project</a>
-
 {% endblock%}
