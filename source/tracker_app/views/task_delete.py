@@ -1,9 +1,9 @@
 
 from tracker_app.models import Task
 from django.urls import reverse_lazy
-from django.views.generic import DetailView
+from django.views.generic import DeleteView
 
-class TaskDeleteView(DetailView):
+class TaskDeleteView(DeleteView):
     template_name = 'task_confirm_delete.html'
     model = Task
     success_url = reverse_lazy('index')

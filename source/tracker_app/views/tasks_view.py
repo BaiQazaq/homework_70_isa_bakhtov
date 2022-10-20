@@ -12,7 +12,7 @@ class IndexView(ListView):
     context_object_name = 'tasks'
     ordering = ('-created_at',)
     paginate_by = 10
-    allow_empty = False
+    allow_empty = True
     
 
     def get(self, request, *args, **kwargs):
@@ -32,7 +32,9 @@ class IndexView(ListView):
         queryset = super().get_queryset().exclude(is_deleted=True)
         if self.search_value:
             query = Q(summary__icontains=self.search_value) | Q(description__icontains=self.search_value)
+            print("QUERY"*5,query)
             queryset = queryset.filter(query)
+            print("QUERYSET"*5,queryset)
         return queryset
     
     def get_context_data(self, *, object_list=None, **kwargs):

@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import TemplateView, FormView, UpdateView
+# from django.shortcuts import render, redirect, get_object_or_404
+from django.views.generic import  UpdateView#, TemplateView, FormView,
 from tracker_app.forms import TaskForm
 from tracker_app.models import Task
 from django.urls import reverse

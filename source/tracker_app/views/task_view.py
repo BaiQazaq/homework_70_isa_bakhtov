@@ -8,5 +8,7 @@ class TaskView(TemplateView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        print("context BEFORE", context)
         context['task'] = get_object_or_404(Task, pk=kwargs['pk'])
+        print("context AFTER", context)
         return context

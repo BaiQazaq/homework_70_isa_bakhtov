@@ -2,7 +2,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django.core.validators import MaxLengthValidator, MinLengthValidator
 
-from tracker_app.models import Task
+from tracker_app.models import Task, Project
 
 def upper_validator(string):
     if not string[0].isupper():
@@ -15,7 +15,7 @@ class TaskForm(forms.ModelForm):
         
     class Meta:
         model = Task
-        fields = ('summary', 'description', 'status', 'type')
+        fields = ('summary', 'description', 'status', 'type', 'project')
     
     def clean_summary(self):
         summary = self.cleaned_data.get('summary')
@@ -29,3 +29,11 @@ class TaskForm(forms.ModelForm):
 class SearchForm(forms.Form):
     search = forms.CharField(max_length=100, required=False, label='Find')
     
+
+class ProjectForm(forms.ModelForm):
+    title = forms.CharField(label='Заголовок', max_length=100, required=True, validators=(MaxLengthValidator(limit_value=100), MinLengthValidator(limit_value=2), upper_validator))
+    start_date = forms.DateField()
+    
+    class Meta:
+        model = Project
+        fields = ('title', 'description', 'start_date', 'finish_date')

@@ -12,7 +12,8 @@
   <p><b>Summary:</b>  {{ task.summary }}</p>
   <p><b>Description:</b>  {{ task.description }}</p>
   <p><b>Status:</b>  {{ task.status }}</p>
-  <p><b>Type:</b>  {{ task.type }}</p>
+  <p><b>Project:</b>  {{ task.project.title }}</p>
+  <p><b>Type:</b>  {{ task.type.name }}</p>
 {% endblock %}
 
 {% block link %}
@@ -20,7 +21,9 @@
   <a href="{% url 'index' %}">Main page</a>
   <p></p>
   <p><a href="{% url 'task_edit' task.pk %}">Edit task</a></p>
+  <p></p>
   <a href="{% url 'task_creation' %}">Add task</a>
-  {% comment %} <a href="{% url 'creation' %}">Add tasks</a> {% endcomment %}
+  <p></p>
+  <p><a href="{% url 'projects_list'%}">Projects list</a></p>
 </div>
 {% endblock %}

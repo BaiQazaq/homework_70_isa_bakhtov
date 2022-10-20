@@ -10,9 +10,8 @@
     <div class="wrapper">
         <h4>Title - {{ project.title }}</h2>
         <p>Description - {{ project.description }}</p>
-        {% comment %} <p>Status - {{ task.type }}</p> {% endcomment %}
-        {% comment %} <p><a href="{% url 'task_render' task.pk %}">View detail</a></p>
-        <p><a href="{% url 'task_edit' task.pk %}">Edit task</a></p>
+        <p><a href="{% url 'project_render' project.pk %}">View detail</a></p>
+        {% comment %} <p><a href="{% url 'task_edit' task.pk %}">Edit task</a></p>
         <p><a href="{% url 'delete' task.pk %}">Delete task</a></p> {% endcomment %}
     </div>
     {% endfor %}
@@ -21,5 +20,7 @@
     <a href="{% url 'index' %}">Main page</a>
     <p></p>
     <a href="{% url 'task_creation' %}">Add task</a>
+    <p></p>
+    <a href="{% url 'project_creation' %}">Add project</a>
 
 {% endblock%}
