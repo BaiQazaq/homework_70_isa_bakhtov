@@ -7,7 +7,7 @@
 
 {% block content %}
     {% for project in projects %}
-    <div class="wrapper">
+    <div class="wrapper projects">
         <h4>Title - {{ project.title }}</h2>
         <p>Description - {{ project.description }}</p>
         <p><a href="{% url 'project_render' project.pk %}">View detail</a></p>

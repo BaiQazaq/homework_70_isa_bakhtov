@@ -11,16 +11,17 @@
         <div class='link'>
             {% block link %}{% endblock %}
             {% if user.is_authenticated %}
-                <li>
+                <p>
                     <a href="{% url 'task_creation' %}">Add task</a>
+                    <span>|</span>
                     <a href="{% url 'project_creation' %}">Add project</a>
-                </li>
-                <li class="auth">Hi {{ user.username }}
+                <p>
+                <p class="auth">Hi {{ user.username }}
                     <form action="{% url 'logout' %}" method="post">
                         {% csrf_token %}
                         <input type='submit' value='Logout'>
                     </form>
-                </li>
+                </p>
             {% else %}
                 <li class="auth"><a href="{% url 'login' %}">Log in</a></li>
 

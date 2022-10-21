@@ -2,9 +2,17 @@
 {% load static %}
 {% load django_bootstrap5 %}
 
+{% block link %}
+<div>
+  <a href="{% url 'index' %}">Main page</a>
+  <span>|</span>
+  <a href="{% url 'projects_list'%}">Projects list</a>
+</div>
+{% endblock %}
+
 {% block content %}
     <form action="{% url 'login' %}" method="POST">
-        <div class="form">
+        <div class="form w-25 mx-auto">
             {% csrf_token %}
 
             {% bootstrap_form form %}

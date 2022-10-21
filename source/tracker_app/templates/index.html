@@ -15,8 +15,9 @@
         {% comment %} <p>Status - {{ task.type }}</p> {% endcomment %}
         <p><a href="{% url 'task_render' task.pk %}">View detail</a></p>
         {% if user.is_authenticated %}
-            <p><a href="{% url 'task_edit' task.pk %}">Edit task</a></p>
-            <p><a href="{% url 'delete' task.pk %}">Delete task</a></p>
+            <a href="{% url 'task_edit' task.pk %}">Edit task</a>
+            <span>|</span>
+            <a href="{% url 'delete' task.pk %}">Delete task</a>
         {% endif %}
     </div>
     {% endfor %}

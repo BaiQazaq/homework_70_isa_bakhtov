@@ -44,3 +44,17 @@
     text-align: center;
     border: solid 1px gray;
 }
+
+.wrapper {
+    border: 1px solid red;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: lightgray;
+}
+.projects {
+    border: 1px solid green;
+    margin-bottom: 10px;
+    background-color: bisque;
+}
