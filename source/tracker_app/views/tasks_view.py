@@ -32,14 +32,15 @@ class IndexView(ListView):
         queryset = super().get_queryset().exclude(is_deleted=True)
         if self.search_value:
             query = Q(summary__icontains=self.search_value) | Q(description__icontains=self.search_value)
-            print("QUERY"*5,query)
             queryset = queryset.filter(query)
-            print("QUERYSET"*5,queryset)
+            if len(queryset) == 0:
+                return queryset
         return queryset
     
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(IndexView, self).get_context_data(object_list=object_list, **kwargs)
         context['form'] = self.form
         if self.search_value:
+            context['text'] = {'text' : 'Tasks not found'}
             context['query'] = urlencode({'search': self.search_value})
         return context

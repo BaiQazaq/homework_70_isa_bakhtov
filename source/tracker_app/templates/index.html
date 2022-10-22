@@ -7,6 +7,7 @@
 
 {% block content %}
 {% include 'partial/simple_search.html' %}
+<h3>{{ text.text }}</h3>
     {% for task in tasks %}
     <div class="wrapper">
         <h4>Summary - {{ task.summary }}</h2>
