@@ -1,9 +1,9 @@
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 from django.db import models
 
 # Create your models here.
-
 
 class Project(models.Model):
     start_date = models.DateField(verbose_name='Дата начала', auto_now=False, auto_now_add=False, null=False, blank=False)
@@ -14,6 +14,12 @@ class Project(models.Model):
     changed_at = models.DateTimeField(verbose_name='Дата изменения', auto_now=True)
     deleted_at = models.DateTimeField(verbose_name='Дата удаления', null=True, default=None)
     is_deleted = models.BooleanField(verbose_name="Удалено", default=False, null=False)
+    users = models.ManyToManyField(
+        through='tracker_app.ProjectUser',
+        to=User,
+        related_name='projects'
+    )
+    
     
     def __str__(self):
         return f"{self.title} - {self.description} - {self.start_date} - {self.finish_date}"
