@@ -14,7 +14,7 @@
         <h4>Summary - {{ task.summary }}</h2>
         <p>Task id - {{ task.id }}</p>
         <p>Status - {{ task.status }}</p>
-        {% comment %} <p>Status - {{ task.type }}</p> {% endcomment %}
+        {% comment %} <p>Type - {{ task.type }}</p> {% endcomment %}
         <p><a href="{% url 'task_render' task.pk %}">View detail</a></p>
         {% if user.is_authenticated %}
             <a href="{% url 'task_edit' task.pk %}">Edit task</a>

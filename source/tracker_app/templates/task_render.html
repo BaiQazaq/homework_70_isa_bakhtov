@@ -13,7 +13,11 @@
   <p><b>Description:</b>  {{ task.description }}</p>
   <p><b>Status:</b>  {{ task.status }}</p>
   <p><b>Project:</b>  {{ task.project.title }}</p>
-  <p><b>Type:</b>  {{ task.type.name }}</p>
+  <p><b>Type:</b>
+  {% for type in task.type.all %}
+    <li>{{ type }}</li>
+  {% endfor %}
+  </p>
 {% endblock %}
 
 {% block link %}
