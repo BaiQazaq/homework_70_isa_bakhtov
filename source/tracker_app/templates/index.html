@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 
+{% block title%}Tasks{% endblock %}
+
 {% block header %}
     <h1>Tasks</h1>
-    
 {% endblock %}
 
 {% block content %}
@@ -27,5 +28,4 @@
     {% endif%}
 {% endblock%}
 {% block link %}
-    <p><a href="{% url 'projects_list'%}">Projects list</a></p>
 {% endblock%}

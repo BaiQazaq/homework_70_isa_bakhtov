@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Create task
+    Edit project
 {% endblock %}
 {% block header %}
-<h1>New task</h1>
+<h1>Editing project  {{ project.pk }}</h1>
 {% endblock %}
 {% block content %}
-    <form action="{% url 'task_creation' %}" method="POST">
+    <form action="{% url 'project_edit' project.pk %}" method="POST">
         {% csrf_token %}
         <div class="form">
-            {% include 'partial/task_form.html' with button_text='Create'%}
+            {% include 'partial/task_form.html' with button_text='Edit'%}
         </div>
     </form>
 {% endblock %}

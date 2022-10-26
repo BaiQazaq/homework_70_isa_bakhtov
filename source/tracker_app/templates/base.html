@@ -9,9 +9,12 @@
     <meta charset="UTF-8">
     <div class="container">
         <div class='link'>
-            {% block link %}{% endblock %}
-            {% if user.is_authenticated %}
                 <p>
+                    <a href="{% url 'index' %}">Main page</a>
+                    <span>|</span>
+                    <a href="{% url 'projects_list'%}">Projects list</a>
+                {% if user.is_authenticated %}
+                    <span>|</span>
                     <a href="{% url 'task_creation' %}">Add task</a>
                     <span>|</span>
                     <a href="{% url 'project_creation' %}">Add project</a>
@@ -24,13 +27,14 @@
                 </p>
             {% else %}
                 <li class="auth"><a href="{% url 'login' %}">Log in</a></li>
+                <li class="auth"><a href="{% url 'register' %}">Register</a></li>
 
             {% endif %}
-
+        {% block link %}{% endblock %}
         </div>
             {% block menu %}{%endblock%}
     </div>
-    <title>{% block title%} Tasks {% endblock %}</title>
+    <title>{% block title%}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css'%}">
 </head>
 <body>

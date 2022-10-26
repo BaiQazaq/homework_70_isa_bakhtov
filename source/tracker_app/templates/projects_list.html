@@ -1,21 +1,26 @@
 {% extends 'base.html' %}
 
+{% block title%}Projects{% endblock %}
+
 {% block header %}
     <h1>Projects</h1>
-    
 {% endblock %}
 
 {% block content %}
+{% include 'partial/simple_search.html' %}
     {% for project in projects %}
     <div class="wrapper projects">
         <h4>Title - {{ project.title }}</h2>
         <p>Description - {{ project.description }}</p>
+        <p>User count {{ projects.users.count }}</p>
         <p><a href="{% url 'project_render' project.pk %}">View detail</a></p>
-        {% comment %} <p><a href="{% url 'task_edit' task.pk %}">Edit task</a></p>
-        <p><a href="{% url 'delete' task.pk %}">Delete task</a></p> {% endcomment %}
+        <p><a href="{% url 'project_edit' project.pk %}">Edit project</a></p>
+        <p><a href="{% url 'project_delete' project.pk %}">Delete project</a></p>
     </div>
     {% endfor %}
+    {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif%}
 {% endblock%}
 {% block link %}
-    <a href="{% url 'index' %}">Main page</a>
 {% endblock%}
