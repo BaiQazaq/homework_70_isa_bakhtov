@@ -1,9 +1,10 @@
 from django.views.generic import ListView
 from tracker_app.models import Task
-from tracker_app.forms import SearchForm
+from tracker_app.forms import SearchForm, ProjectUserForm
 from urllib.parse import urlencode
 from django.db.models import Q
 from django.shortcuts import get_object_or_404
+
 
 
 class IndexView(ListView):
@@ -40,6 +41,7 @@ class IndexView(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(IndexView, self).get_context_data(object_list=object_list, **kwargs)
         context['form'] = self.form
+        
         if self.search_value:
             context['text'] = {'text' : 'Tasks not found'}
             context['query'] = urlencode({'search': self.search_value})

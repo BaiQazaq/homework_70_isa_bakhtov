@@ -12,5 +12,6 @@ class ProjectCreateView(LoginRequiredMixin, CreateView):
     model = Project
     #success_url = 
     
+    
     def get_success_url(self):
         return reverse_lazy('project_render', kwargs={'pk': self.object.pk})

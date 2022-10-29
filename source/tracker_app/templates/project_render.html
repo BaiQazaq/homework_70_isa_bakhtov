@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load django_bootstrap5 %}
 
 {% block title %}
   Project {{ project.pk }}
@@ -13,7 +14,12 @@
   <p><b>Description:</b>  {{ project.description }}</p>
   <p><b>Start:</b>  {{ project.start_date }}</p>
   <p><b>Finish :</b>  {{ project.start_date }}</p>
+  <p>Users count {{ project.projects_user.count }}</p>
+  {% for user in project.projects_user.all %}
+    <p> {{ user.user }}</p>
+  {% endfor %}
 {% endblock %}
 
 {% block link %}
+<p><a href="{% url 'delete_user_from_project' project.pk %}">Delete user</a></p>
 {% endblock %}

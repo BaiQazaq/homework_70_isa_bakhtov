@@ -2,8 +2,9 @@ from django.views.generic import ListView
 from tracker_app.models import Project
 from django.db.models import Q
 from urllib.parse import urlencode
+from django.contrib.auth.models import User
 
-from tracker_app.forms import SearchForm
+from tracker_app.forms import SearchForm, ProjectUserForm
 
 
 class ProjectIndexView(ListView):
@@ -41,6 +42,7 @@ class ProjectIndexView(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(ProjectIndexView, self).get_context_data(object_list=object_list, **kwargs)
         context['form'] = self.form
+        context['project_users'] =  ProjectUserForm()
         if self.search_value:
             context['text'] = {'text' : 'Project not found'}
             context['query'] = urlencode({'search': self.search_value})

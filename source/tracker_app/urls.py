@@ -11,6 +11,8 @@ from tracker_app.views.project_create_view import ProjectCreateView
 from tracker_app.views.project_view import ProjectView
 from tracker_app.views.project_edit_view import ProjectEditView
 from tracker_app.views.project_delete_view import ProjectDeleteView
+from tracker_app.views.add_user_to_project_view import AddUserView
+from tracker_app.views.delete_user_from_project import DeleteUserFromProject
 
 
 
@@ -28,5 +30,9 @@ urlpatterns = [
     path("project/<int:pk>", ProjectView.as_view(), name='project_render'),
     path("project/<int:pk>/update/", ProjectEditView.as_view(), name='project_edit'),
     path("project/<int:pk>/delete/", ProjectDeleteView.as_view(), name= "project_delete"),
-    path("project/<int:pk>/confirm_delete/", ProjectDeleteView.as_view(), name= "project_confirm_delete")
+    path("project/<int:pk>/confirm_delete/", ProjectDeleteView.as_view(), name= "project_confirm_delete"),
+    
+    path("project/<int:pk>/add-user/", AddUserView.as_view(), name="add_user_to_project"),
+    path("project/<int:pk>/user-delete/", DeleteUserFromProject.as_view(), name= "delete_user_from_project"),
+    path("project/<int:pk>/confirm_delete_user/", DeleteUserFromProject.as_view(), name= "confirm_delete_user_from_project")
 ]

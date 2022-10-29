@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+
+{% block title %}
+  Deleting user from project - {{ project.title }}
+{% endblock %}
+
+
+{% block content %}
+<h1>Check the user for deleting from this project?</h1>
+  <p>Title of project {{ project.title }}</p>
+  <p>Description of project {{ project.description }}</p>
+  <p>USERS {{ users }}
+<form action="{% url 'confirm_delete_user_from_project' project.pk %}" method='post'>
+    {% csrf_token %}
+    <select name="user">
+        {% for utilizer in users %}
+            <option value={{ utilizer.pk }}>{{ utilizer.user }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Delete</button>
+    <a href="{% url 'projects_list' %}">Cancel</a>
+</form>
+{% endblock%}
+
+{% block link %}
+    <p><a href="{% url 'project_edit' project.pk %}">Edit project</a></p>
+{% endblock %}

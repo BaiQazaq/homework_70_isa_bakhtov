@@ -1,8 +1,10 @@
+from email.policy import default
 from django import forms
 from django.core.exceptions import ValidationError
 from django.core.validators import MaxLengthValidator, MinLengthValidator
+from django.contrib.auth.models import User
 
-from tracker_app.models import Task, Project
+from tracker_app.models import Task, Project, ProjectUser
 
 def upper_validator(string):
     if not string[0].isupper():
@@ -36,4 +38,8 @@ class ProjectForm(forms.ModelForm):
     
     class Meta:
         model = Project
-        fields = ('title', 'description', 'start_date', 'finish_date')
+        fields = ('title', 'description', 'start_date', 'finish_date', 'users')
+        
+
+class ProjectUserForm(forms.Form):
+    user = forms.ModelMultipleChoiceField(required=False, label='Users', queryset=User.objects.all())

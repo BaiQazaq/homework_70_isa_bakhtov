@@ -35,10 +35,4 @@ class StatusAdmin(admin.ModelAdmin):
 admin.site.register(Status, StatusAdmin)
 
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ("id", "title", "description", "start_date", "finish_date")
-    list_filter = ("id", "title", "description", "start_date", "finish_date", "created_at", "changed_at")
-    search_fields = ("id", "title", "created_at", "changed_at")
-    fields = ("id","title", "created_at", "changed_at")
-    readonly_fields = ("id", "created_at", "changed_at")
-
-admin.site.register(Project, ProjectAdmin)
+    admin.site.register(Project)
