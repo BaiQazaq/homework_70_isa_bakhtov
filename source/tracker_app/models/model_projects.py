@@ -21,8 +21,8 @@ class Project(models.Model):
     )
     
     
-    def __str__(self):
-        return f"{self.title} - {self.description} - {self.start_date} - {self.finish_date}"
+    # def __str__(self):
+    #     return f"{self.title} - {self.description} - {self.start_date} - {self.finish_date}"
     
     def delete(self, using=None, keep_parents=False):
         self.deleted_at = timezone.now()
