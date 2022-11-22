@@ -6,19 +6,19 @@ from rest_framework.response import Response
 from rest_framework import status
 
 # Create your views here.
-from api.serializers.project_serializer import ProjectSerializer
-from tracker_app.models import Project
+from api.serializers.task_serializer import TaskSerializer
+from tracker_app.models import Task
 
-class ProjectSimpleView(View):
+class TaskSimpleView(View):
     
     def get(self, request, *args, **kwargs):
-        object = Project.objects.get(pk = kwargs['pk'])
-        serializer = ProjectSerializer(object)
+        object = Task.objects.get(pk = kwargs['pk'])
+        serializer = TaskSerializer(object)
         return JsonResponse(serializer.data)
     
 
-class ProjectView(APIView):
+class TaskView(APIView):
     def get(self, request, *args, **kwargs):
-        objects = Project.objects.get(pk = kwargs['pk'])
-        serializer = ProjectSerializer(objects)
+        objects = Task.objects.filter(pk = kwargs['pk'])
+        serializer = TaskSerializer(objects)
         return Response(serializer.data, status=status.HTTP_200_OK)
